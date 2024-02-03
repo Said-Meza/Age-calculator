@@ -4,8 +4,6 @@ $form=d.querySelector(".form__date");
 $formlabelnumber=d.querySelectorAll(".date_input[required]"),
    date= new Date();
 
-// console.log($formlabelnumber)
-
 $formlabelnumber.forEach(el => {
 
   const $label= d.createElement("label");
@@ -48,8 +46,7 @@ function validinputs(input__name,input__value, currentyear){
   
   if(input__name==="dayinput")
   {
-    validday(input__value); 
-
+      validday(input__value); 
   }
   else if(input__name==="monthinput")
   {
@@ -59,10 +56,8 @@ function validinputs(input__name,input__value, currentyear){
   {
     validyear(input__value,currentyear)
   }
+
 } 
-
-
-// console.log(d.querySelector(".error"))
 
 d.addEventListener("keyup",e=>{
 
@@ -100,37 +95,27 @@ d.addEventListener("submit",(e)=>{
 
     e.preventDefault();
 
-    // console.log(e.target)
-
     if(e.target.matches(".form__date"))
     {
 
       //pequeña validacion por si esta vacia la variable de formlabelinputs
       if (!$formlabelnumber) alert("algo esta mal");
-      
-      
+            
       console.log(`${$formlabelnumber}`)
 
       $formlabelnumber.forEach(el=>{
     
         console.log(el)
         console.log(el.value,el.name,el.id)
-        // console.log()
-        // console.log()
+        
         if(el.value==="" || el.value==="0" || el.value===0)
         {
           validinputs(el.name,el.value,date);
-        //  d.getElementById(el.name).textContent=""
-        
-        //   console.log(`el input year es cero 0000`)
         
         }
-        else
-        {
-          
-          validinputs(el.name,el.value,date);
-          
-        }
+
+       
+       //aqui va el procedimiento que tu necesitas hacer para acabar esto
        
         
       

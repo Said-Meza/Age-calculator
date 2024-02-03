@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | Age calculator app</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+
+  <section class="date__container">
+
+    <form class="form__date" action="#">
+
+        <section class="container__inputs">
+
+            <section class="form__container">
+                <label class="date_name"  for="day"> Day</label>
+                <input class="date_input" pattern="^[0-9]+$" type="text" name="dayinput" id="day" placeholder="DD" required>
+                <span class="error error_style" name="spanerror" id="spanday">must be a valid day</span>
+              </section>
+
+            <section class="form__container">
+                <label class="date_name"  for="month" > Month</label>
+                <input class="date_input" pattern="^[0-9]+$" type="text" name="monthinput" id="month" placeholder="MM" required>
+                <span class="error error_style" name="spanerror" id="spanmonth">must be a valid month</span>
+              </section>
+
+            <section class="form__container">
+                <label class="date_name"  for="year" > Year</label>
+                <input class="date_input" pattern="^[0-9]+$" type="text" name="yearinput" id="year" placeholder="YYYY" required>
+                <span class="error error_style" name="spanerror" id="spanyear">must be a valid year</span>
+              </section>
+        </section>
+        
+        <hr>
+        <button  class="btn__arrow" >
+          <img class="arrow" src="assets/images/icon-arrow.svg" alt="arrow">
+        </button>
+  
+    </form>
+
+    <section class="date__result">
+    <label class="result__label"><span class="number" id="year">--</span> years</label>
+
+    <label class="result__label"><span class="number" id="month">--</span> months</label>
+    
+    <label class="result__label"><span class="number" id="days">--</span> days</label>
+    </section>
+
+  </section>
+
+<script src="app.js"></script>
+</body>
+</html>

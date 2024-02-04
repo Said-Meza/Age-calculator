@@ -32,6 +32,7 @@ body{
     width: 90%;
     padding: 1rem;
     height: 450px;
+    min-height: 430px;
     margin: 0 auto;
     background-color: var(--White);
     

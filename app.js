@@ -2,7 +2,10 @@
 const d= document,
 $form=d.querySelector(".form__date");
 $formlabelnumber=d.querySelectorAll(".date_input[required]"),
-   date= new Date();
+   date= new Date(),
+$years=d.getElementById("resultyear");
+$months=d.getElementById("resultmonth");
+$days=d.getElementById("resultdays");
 
 $formlabelnumber.forEach(el => {
 
@@ -58,6 +61,49 @@ function validinputs(input__name,input__value, currentyear){
   }
 
 } 
+function cal_age({day, month ,year}){
+
+  const cumple = new Date(`${month} ${day} ${year}`), // Ajusta el formato de la fecha para que sea MM DD YYYY
+          now = new Date(),
+          diferenciaEnMilisegundos = now - cumple,
+          duracion = new Date(diferenciaEnMilisegundos),
+          years = duracion.getUTCFullYear() - 1970,
+          months = duracion.getUTCMonth(),
+           days = duracion.getUTCDate() - 1;
+
+    // console.log(`cumpleaños: ${cumple}`)
+    // console.log(`fechaactual: ${now}`)
+
+    // Calcula la diferencia en milisegundos
+     
+    // console.log(`diferencia : ${diferenciaEnMilisegundos}`)
+
+    // Convierte la diferencia a un objeto de duración para facilitar los cálculos
+     
+    // console.log(`conversion a objeto(duracion) : ${diferenciaEnMilisegundos}`)
+
+    // Extrae los componentes individuales de la duración
+    // console.log(`años sin restar : ${duracion.getUTCFullYear()}`)
+
+      // Resta 1970 porque getUTCFullYear devuelve el año completo
+    // console.log(`años : ${años}`)
+
+    
+    // console.log(`meses : ${meses}`)
+     // Resta 1 porque getUTCDate devuelve el día del mes (1-31)
+    // console.log(`dias : ${dias}`)
+    // const horas = duracion.getUTCHours();
+    // const minutos = duracion.getUTCMinutes();
+    // const segundos = duracion.getUTCSeconds();
+
+    // console.log(`Diferencia: ${años} años, ${meses} meses, ${dias} días, ${horas} horas, ${minutos} minutos, ${segundos} segundos.`);
+   
+    console.log(`Diferencia: ${years} años, ${months} meses, ${days} días`);
+
+  $years.textContent=`${years}`;
+  $months.textContent=`${months}`;
+  $days.textContent=`${days}`;
+}
 
 d.addEventListener("keyup",e=>{
 
@@ -100,28 +146,28 @@ d.addEventListener("submit",(e)=>{
 
       //pequeña validacion por si esta vacia la variable de formlabelinputs
       if (!$formlabelnumber) alert("algo esta mal");
-            
-      console.log(`${$formlabelnumber}`)
+           
 
       $formlabelnumber.forEach(el=>{
     
-        console.log(el)
-        console.log(el.value,el.name,el.id)
-        
+       
         if(el.value==="" || el.value==="0" || el.value===0)
         {
           validinputs(el.name,el.value,date);
         
         }
 
-       
-       //aqui va el procedimiento que tu necesitas hacer para acabar esto
-       
-        
-      
-    
       })
+
+      let day=$formlabelnumber[0].value,
+        month=$formlabelnumber[1].value,
+        year=$formlabelnumber[2].value;
+
+       
+        cal_age({day,month,year});
+    
       
     }
+    $form.reset()
 
 });
